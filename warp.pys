@@ -1,0 +1,15 @@
+# warp a 3D field using the gradient G(gx,gy,gz)
+def warp(field, gx, gy, gz):
+    k = 3.0
+    field2 = np.zeros((N,N,Nz))
+    for x in xrange(N):    
+        for y in xrange(N):
+            for z in xrange(Nz):
+                u = round(x+k*gx[x,y,z])
+                v = round(y+k*gy[x,y,z])
+                w = round(z+k*gz[x,y,z])
+                try:
+                    field2[x,y,z] = field[u,v,w]
+                except: pass
+
+    return field2

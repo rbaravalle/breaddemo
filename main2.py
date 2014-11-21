@@ -1,0 +1,2 @@
+import sist
+sist.main()
